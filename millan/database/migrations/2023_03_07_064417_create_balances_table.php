@@ -20,7 +20,7 @@ return new class extends Migration
             $table->decimal('totalBalance', $precision = 8, $scale = 2);
             $table->text('notes');
             $table->timestamps();
-            $table->foreign('sNo')->reference ('sNo')->on('studentinfo');
+            $table->foreign('sNo')->references('sNo')->on('studentinfo');
         });
     }
 

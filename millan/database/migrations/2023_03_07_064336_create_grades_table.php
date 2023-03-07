@@ -22,8 +22,8 @@ return new class extends Migration
             $table->decimal('finals', $precision = 3, $scale = 2);
             $table->string('remarks', 4);
             $table->timestamps();
-            $table->foreign('esNo')->reference ('esNo')->on('enrolledsubjects');
-            $table->foreign('sNo')->reference ('sNo')->on('studentinfo');
+            $table->foreign('esNo')->references('esNo')->on('enrolled_subjects');
+            $table->foreign('sNo')->references('sNo')->on('studentinfo');
         });
     }
 
