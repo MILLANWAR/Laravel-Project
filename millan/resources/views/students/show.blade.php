@@ -19,7 +19,7 @@
                             <th>Course and Year</th>
                             <th>Birth Date</th>
                             <th>Gender</th>
-                            <th>Options</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -31,12 +31,9 @@
                             <td>{{ date("F j,Y", strtotime( $stuinfo->birthDate))}}</td>
                             <td>{{ $stuinfo->gender}}</td>
                             <td>
-                            <a class="mt-4 bg-blue-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" href="{{ route('students-show', ['stuno' => $stuinfo->sno ]) }}">view</a>
-                            <a href="#" class="mt-4 bg-red-200 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded">edit</a>
-                            <a href="#" class="mt-4 bg-green-200 hover:bg-red-500 text-black font-bold py-2 px-4 rounded">delete</a>
+                            <a class="mt-4 bg-red-200 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded" href="{{ route('students') }}">back</a>
                             </td>                        
                         </tr>
-                        
                         @endforeach
                     </tbody>
                 </div>

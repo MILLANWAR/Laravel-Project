@@ -37,11 +37,21 @@ Route::post('/students/add',[studentInfoController::class, 'store'])
 ->middleware(['auth', 'verified'])
 ->name('student-store');
 
+//04 - get all data from student info table
+Route::get('/students', [StudentInfoController::class, 'index'])
+->middleware(['auth', 'verified'])
+->name('students');
+
+//05 - view individually student info
+Route::get('/students/{stuno}', [StudentInfoController::class, 'show'])
+->middleware(['auth', 'verified'])
+->name('students-show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__.'/auth.php';
