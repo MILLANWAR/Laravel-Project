@@ -16,6 +16,7 @@
                         <tr>
                             <th>ID No.</th>
                             <th>Full Name</th>
+                            <th>Suffix</th>
                             <th>Course and Year</th>
                             <th>Birth Date</th>
                             <th>Gender</th>
@@ -26,14 +27,19 @@
                         @foreach ($StudentInfo as $stuinfo)
                         <tr>
                             <td>{{ $stuinfo->idNo}}</td>
-                            <td>{{ $stuinfo->firstName}} {{ $stuinfo->middleName}} <{{ $stuinfo->lastName}}/td>
+                            <td>{{ $stuinfo->firstName}} {{ $stuinfo->middleName}} {{ $stuinfo->lastName}}, {{ $stuinfo->suffix}}, </td>
                             <td>{{ $stuinfo->course}} - {{ $stuinfo->year}}</td>
                             <td>{{ date("F j,Y", strtotime( $stuinfo->birthDate))}}</td>
                             <td>{{ $stuinfo->gender}}</td>
                             <td>
                             <a class="mt-4 bg-blue-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" href="{{ route('students-show', ['stuno' => $stuinfo->sno ]) }}">view</a>
-                            <a href="#" class="mt-4 bg-red-200 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded">edit</a>
-                            <a href="#" class="mt-4 bg-green-200 hover:bg-red-500 text-black font-bold py-2 px-4 rounded">delete</a>
+                            <a class="mt-4 bg-red-200 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded" href="{{ route('students-edit', ['stuno' => $stuinfo->sno ]) }}">edit</a>
+                            <form method="POST" action="{{ route('students-delete', ['stuno'=>$stuinfo->sno]) }}" onclick="return confirm('Are you sure you want to delete this records?')">
+                              @csrf 
+                              @method('delete')
+                              <button class="mt-4 bg-green-200 hover:bg-red-500 text-black font-bold py-2 px-4 rounded">Delete</button>  
+                            </form>
+                            
                             </td>                        
                         </tr>
                         
