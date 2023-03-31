@@ -64,8 +64,19 @@ Route::patch('/students/update/{stuno}', [StudentInfoController::class, 'update'
 
 
 
+//<----------------------------------------------------------------->
 
 
+//01 - going to enrolledsubject/index file
+Route::get('/enrolledsubject', function () {
+    return view('enrolledsubject/index');
+})->middleware(['auth', 'verified'])->name('enrolledsubject');
+
+
+//02 - going to enrolledsubjects/index file
+Route::get('/enrolledsubject/add', function () {
+    return view('enrolledsubject.add');
+})->middleware(['auth', 'verified'])->name('add-enrolledsubject');
 
 
 

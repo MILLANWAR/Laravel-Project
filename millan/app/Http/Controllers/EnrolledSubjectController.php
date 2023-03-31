@@ -14,16 +14,19 @@ class EnrolledSubjectController extends Controller
     public function index()
     {
         //
-             $EnrolledSubject = new enrolled_subject();
+        $EnrolledSubject = enrolled_subject::all();
+        return view('enrolledsubject.index', compact('EnrolledSubject'));
 
-        // $EnrolledSubject->EsNo = "011";
-        $EnrolledSubject->subjectcode = "BSBA2";
-        $EnrolledSubject->description = "Statistics";
-        $EnrolledSubject->units = "3";
-        $EnrolledSubject->schedule = "Monday & Friday";
+        //      $EnrolledSubject = new enrolled_subject();
+
+        // // $EnrolledSubject->EsNo = "011";
+        // $EnrolledSubject->subjectcode = "BSBA2";
+        // $EnrolledSubject->description = "Statistics";
+        // $EnrolledSubject->units = "3";
+        // $EnrolledSubject->schedule = "Monday & Friday";
         
-        $EnrolledSubject->save();
-        echo "enrolled subject  has been save from the data base";
+        // $EnrolledSubject->save();
+        // echo "enrolled subject  has been save from the data base";
     }
 
     /**
